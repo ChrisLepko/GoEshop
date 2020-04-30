@@ -328,7 +328,7 @@ input.au-input.au-input-xl{
 .cart-area i{
   font-size:22px;
   float:left;
-  margin-top:16px;
+  margin-top:30px;
   color:#fff;
   margin-left:15px
 }
@@ -341,8 +341,8 @@ input.au-input.au-input-xl{
   border:5px solid rgb(255, 248, 248);
   font-weight: bold;
   float:left;
-  margin-top:7px;
-  padding-left:17px
+  margin-top:15px;
+  padding-left:17px;
 }
 
 .total span{
@@ -353,7 +353,7 @@ input.au-input.au-input-xl{
   font-weight: bold;
   border-top-right-radius:20px;
   border-bottom-right-radius:20px;
-  margin-left:11px
+  margin-left:11px;
 }
 
 .form-header{
@@ -367,7 +367,8 @@ input.au-input.au-input-xl{
 .au-btn-submit{
   position:relative;
   right:0;
-  min-width:95px;
+  min-width:100px;
+  min-height: 48px;
   color:#FF8C00;
   border:1px solid rgb(255, 248, 248);
   -webkit-border-radius:3px;
@@ -375,10 +376,33 @@ input.au-input.au-input-xl{
   border-radius:43px;
   background:rgb(255, 248, 248);
   font-weight: bold;
+  margin-left: 0;
+  margin-right: 20px;
+  
+}
+
+.account-button{
+  position:relative;
+  right:0;
+  min-width:100px;
+  min-height: 48px;
+  bottom: 20px;
+  color:#FF8C00;
+  border:1px solid rgb(255, 248, 248);
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  border-radius:43px;
+  background:rgb(255, 248, 248);
+  font-weight: bold;
+  left: 20px;
+  margin-left: 20px;
   
 }
 
 .au-btn-submit:hover{
+  background:#eeeeee
+}
+.account-button:hover{
   background:#eeeeee
 }
 
