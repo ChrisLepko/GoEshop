@@ -15,6 +15,7 @@ import { SideCategoryMenuComponent } from './components/side-category-menu/side-
 import { SearchAddProductComponent } from './components/search-add-product/search-add-product.component';
 import { RightHeaderMenuComponent } from './components/right-header-menu/right-header-menu.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { LogoutComponent } from './components/logout/logout.component';
     SideCategoryMenuComponent,
     SearchAddProductComponent,
     RightHeaderMenuComponent,
-    LogoutComponent
+    LogoutComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,

@@ -491,6 +491,22 @@ input.au-input.au-input-xl{
   padding: 30px 30px 30px 220px;
 }
 
+.new-product-form {
+  width: 960px; 
+  background: #FF8C00;
+  border-radius: 10px;
+  overflow: hidden;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 30px 30px 30px 220px;
+}
+
 .emoji{
   width: 200px;
   height: 200px;
@@ -544,6 +560,42 @@ input.au-input.au-input-xl{
   border-radius: 25px;
   padding: 0 30px 0 68px;
 }
+
+
+.new-product-input {
+  font-family: Poppins-Medium;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #666666;
+
+  display: block;
+  width: 70%;
+  background: #e6e6e6;
+  height: 50px;
+  border-radius: 25px;
+  padding: 0 30px 0 68px;
+}
+
+.new-product-input-textarea{
+  font-family: Poppins-Medium;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #666666;
+  display: block;
+  width: 70%;
+  background: #e6e6e6;
+  height: 100px;
+  border-radius: 25px;
+  padding: 0 30px 0 68px;
+  padding-top: 5px;
+}
+
+.new-product-input-textarea::placeholder {
+
+  justify-content: center;
+  padding-top: 29px;
+}
+
 
 .login-symbol {
   font-size: 15px;
