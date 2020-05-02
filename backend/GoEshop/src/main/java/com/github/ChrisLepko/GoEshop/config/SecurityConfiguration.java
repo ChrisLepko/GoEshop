@@ -1,4 +1,4 @@
-package com.github.ChrisLepko.GoEshop;
+package com.github.ChrisLepko.GoEshop.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -9,6 +9,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import javax.sql.DataSource;
 
@@ -28,9 +31,12 @@ public class SecurityConfiguration  extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/adminpajac").hasRole("ADMIN")
-                .antMatchers("/pajac").hasAnyRole("ADMIN", "USER")
-                .antMatchers("/").permitAll()
+//                .antMatchers("/adminpajac").hasRole("ADMIN")
+//                .antMatchers("/pajac").hasAnyRole("ADMIN", "USER")
+//                .antMatchers("/users/**").permitAll()
+//                .antMatchers("/authcheck").hasAnyRole("ADMIN", "USER")
+                .antMatchers(HttpMethod.POST,"/users/create").permitAll()
+                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .anyRequest().authenticated()
                 .and().httpBasic();
     }

@@ -15,9 +15,15 @@ public class Users {
 
     private String password;
 
+    private boolean enabled;
+
     @ManyToOne
     @JoinColumn(nullable = false)
     private UserRole role;
+
+    protected Users(){
+
+    }
 
     public String getUsername() {
         return username;
@@ -49,6 +55,14 @@ public class Users {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     public UserRole getRole() {

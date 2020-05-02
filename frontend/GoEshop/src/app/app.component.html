@@ -1,28 +1,11 @@
 <div class="page-wrapper">
   <aside class="menu-sidebar d-none d-lg-block">
     <div class="logo">
-      <a href="#">
+      <a routerLink="/products">
         <img src="assets/images/logo.png" alt="GoEshop" class="img-responsive">
       </a>
     </div>
-    <div class="menu-sidebar-content js-scrollbar1">
-      <nav class="navbar-sidebar">
-        <ul class="list-unstyled navbar-list">
-          <li>
-            <a href="#">Category 1</a>
-          </li>
-          <li>
-            <a href="#">Category 2</a>
-          </li>
-          <li>
-            <a href="#">Category 3</a>
-          </li>
-          <li>
-            <a href="#">Category 4</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <app-side-category-menu></app-side-category-menu>
   </aside>
 
 
@@ -33,41 +16,17 @@
         <div class="container-fluid">
           <div class="header-wrap">
 
-            <div class="form-header">
+            <app-search-add-product></app-search-add-product>
 
-              <input #myInput class="au-input au-input-xl" type="text" placeholder="Search for products ..." />
+            <app-right-header-menu></app-right-header-menu>
 
-              <button class="au-btn-submit">
-                Search
-              </button>
-              <div *ngIf="true">
-                <button class="au-btn-submit">
-                  Add Product
-                </button>
-              </div>
-            </div>
-
-            <div class="cart-area d-n">
-              <a routerLink="/cart-details">
-                <div class="total">34
-                  <span>2</span>
-                </div>
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-              </a>
-              <button class="account-button">
-                My Account
-              </button>
-
-              <button class="account-button">
-                Logout
-              </button>
-            </div>
           </div>
           <div class="account-wrap"></div>
         </div>
       </div>
     </header>
 
+    <!-- MAIN CONTENT -->
     <router-outlet></router-outlet>
 
   </div>

@@ -1,4 +1,4 @@
-package com.github.ChrisLepko.GoEshop;
+package com.github.ChrisLepko.GoEshop.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
