@@ -1,0 +1,27 @@
+<div class="main-content">
+    <div class="text-center">
+        <a href="#">
+            <img src="assets/images/logo.png" alt="GoEshop" class="img-responsive">
+        </a>
+        <alerts></alerts>
+        <div class="login-container">
+            <div class="login-form" (keyup.enter)="validate()">
+                <h2>Please Sign in and GoEshop !</h2>
+                <div class="login-wrap">
+                    <input class="login-input" type="text" placeholder="Username" [(ngModel)]="username">
+                    <span class="login-symbol"><i class="fa fa-user-circle" aria-hidden="true"></i></span>                   
+                </div>
+                <div class="login-wrap">
+                    <input class="login-input" type="password" placeholder="Password" [(ngModel)]="password">
+                    <span class="login-symbol"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                </div>
+                <div class="container-login-btn">
+                    <button class="login-btn" (click)="validate()">Sign In</button>
+                </div>
+                <div class="login-wrap">
+                    <a class="sign-up" routerLink="/register">Don't have account? Sign up now!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="form-header">
+
+    <input #myInput class="au-input au-input-xl" type="text" placeholder="Search for products ..." />
+
+    <button class="au-btn-submit">
+        Search
+    </button>
+    <div *ngIf="true">
+        <button class="au-btn-submit" *ngIf="true" (click)="addProduct()">
+            Add Product
+        </button>
+    </div>
+</div>

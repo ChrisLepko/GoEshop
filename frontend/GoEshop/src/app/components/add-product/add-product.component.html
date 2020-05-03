@@ -1,0 +1,77 @@
+<div class="main-content">
+    <div class="text-center">
+        <a href="#">
+            <img src="assets/images/logo.png" alt="GoEshop" class="img-responsive">
+        </a>
+        <alerts></alerts>
+        <div class="login-container" (keyup.enter)="validate()">
+            <div class="new-product-form ">
+                <h2 style="margin-left: 100px;">Add new Product</h2>
+                <div class="register-wrap">
+                    <input class="register-input" type="text" placeholder="Product name" [(ngModel)]="productName">
+                    <span class="login-symbol"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                </div>
+                <div class="register-wrap">
+                    <input class="new-product-input" type="text" placeholder="Stock keeping unit" [(ngModel)]="sku">
+                    <span class="login-symbol"><i class="fa fa-tag" aria-hidden="true"></i></span>
+                </div>
+                <div class="register-wrap">
+                    <textarea class="new-product-input-textarea" type="text" placeholder="Description"
+                        [(ngModel)]="description" onfocus="placeholder=''"
+                        onblur="placeholder='Description'"></textarea>
+                    <span class="login-symbol"><i class="fa fa-sticky-note" aria-hidden="true"></i></span>
+                </div>
+                <div class="register-wrap">
+                    <input class="new-product-input" type="text" placeholder="Unit price" [(ngModel)]="unitPrice">
+                    <span class="login-symbol"><i class="fa fa-credit-card" aria-hidden="true"></i></span>
+                </div>
+                <div class="register-wrap">
+                    <input class="new-product-input" type="text" placeholder="Units in stock"
+                        [(ngModel)]="unitsInStock">
+                    <span class="login-symbol"><i class="fa fa-database" aria-hidden="true"></i></span>
+                </div>
+
+                <div class="register-wrap">
+                    <input class="img-input" type="text" placeholder="Product image" *ngIf="!selectedFile" disabled>
+                    <input class="img-input" type="text" placeholder="{{selectedFile.name}}" *ngIf="selectedFile" disabled>
+                    <span class="img-symbol"><i class="fa fa-folder-open" aria-hidden="true"></i></span>
+                </div>
+                <div class="new-product-wrap">
+                    <input style="visibility: hidden;" class="add-image-btn" type="file" name="file" id="file"
+                    (change)="onFileChanged($event)">
+                <button class="add-img-btn" ng (click)="clickLabel()"><label id="add" for="file"></label>Click to
+                    choose a file</button>
+                <img class="new-img" [src]="imgURL" *ngIf="imgURL">
+                </div>
+
+                <div class="container-register-btn">
+                    <button class="login-btn" (click)="validate()">Sign up</button>
+                </div>
+                <div class="register-wrap">
+                    <a class="sign-in" routerLink="/products" style="margin-left: 50px;">Go back to Main page !</a>
+                </div>
+            </div>
+
+        </div>
+
+        <h3>Image Uploading Module</h3>
+        <div>
+            <input type="file" name="file2" id="file2" (change)="onFileChanged($event)">
+        </div>
+        <div>
+            <label for="file2">Choose file</label>
+            <img [src]="imgURL" height="200" *ngIf="imgURL">
+        </div>
+        <!-- <! — upload image — > -->
+        <input type="button" (click)="onUpload()" value="upload">
+        <hr />
+        Received Image:
+
+        <input type="text" placeholder="image name" [(ngModel)]="imageId">
+        <input type="button" (click)="getImage()" value="Get Image" />
+        <div *ngIf="convertedImage">
+            <img [src]="convertedImage">
+        </div>>
+
+    </div>
+</div>

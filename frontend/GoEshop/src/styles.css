@@ -533,6 +533,15 @@ input.au-input.au-input-xl{
   padding-top: 20px;
 }
 
+.new-product-wrap {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  margin-bottom: 10px;
+  padding-top: 0
+}
+
+
 .login-input {
   font-family: Poppins-Medium;
   font-size: 20px;
@@ -609,6 +618,33 @@ input.au-input.au-input-xl{
   position: absolute;
   border-radius: 25px;
   bottom: 0;
+  left: 30px;
+  top: 10px;
+  width: 100%;
+  height: 100%;
+  padding-left: 0px;
+  pointer-events: none;
+  color: #666666;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+
+.img-symbol {
+  font-size: 15px;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  border-radius: 25px;
+  bottom: 100px;
   left: 30px;
   top: 10px;
   width: 100%;
@@ -716,11 +752,59 @@ input.au-input.au-input-xl{
   color: #333333;
 }
 .footer {
-  position: fixed;
+  position: relative;
   left: 0;
   bottom: 0;
   width: 100%;
   background-color: #333333;
   color: white;
   text-align: center;
+}
+
+.add-img-btn{
+  position:relative;
+  right:0;
+  bottom: 20px;
+  color:#FF8C00;
+  border:1px solid rgb(255, 248, 248);
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  border-radius:43px;
+  background:rgb(255, 248, 248);
+  font-weight: bold;
+  height: 50px;
+  width: 70%;
+  display: block;
+  
+}
+.add-img-btn:hover {
+  background: #333333;
+}
+
+.img-input{
+  font-family: Poppins-Medium;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #666666;
+
+  display: flex;
+  width: 70%;
+  background: #e6e6e6;
+  height: 50px;
+  border-radius: 25px;
+  padding: 0 30px 0 68px;
+}
+
+.img-input::placeholder {
+
+  justify-content: center;
+  text-align: center;
+  padding-right: 37px;
+}
+
+.new-img{
+  display: flex;
+  height: 200px;
+  width: 300px;
+  margin-left: 100px;
 }
