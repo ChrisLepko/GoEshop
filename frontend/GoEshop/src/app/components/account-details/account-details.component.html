@@ -1,0 +1,47 @@
+<div class="main-content">
+    <div class="text-center">
+        <a href="#">
+            <img src="assets/images/logo.png" alt="GoEshop" class="img-responsive">
+        </a>
+        <alerts></alerts>
+        <div class="login-container" (keyup.enter)="validate()">
+            <div class="register-form">
+                <h2>Create your account and GoEshop !</h2>
+                <div class="register-wrap"> 
+                    <input class="register-input" type="text" placeholder="Username" [(ngModel)]="username" [disabled]="isDisabled">
+                    <span class="login-symbol"><i class="fa fa-user-circle" aria-hidden="true"></i></span>                   
+                </div>
+                <div class="register-wrap"> 
+                    <input class="register-input" type="text" placeholder="First Name" [(ngModel)]="name" [disabled]="isDisabled">
+                    <span class="login-symbol"><i class="fa fa-user-circle" aria-hidden="true"></i></span>                   
+                </div>
+                <div class="register-wrap"> 
+                    <input class="register-input" type="text" placeholder="Last Name" [(ngModel)]="lastName" [disabled]="isDisabled">
+                    <span class="login-symbol"><i class="fa fa-user-circle" aria-hidden="true"></i></span>                   
+                </div>
+                <div class="register-wrap"> 
+                    <input class="register-input" type="text" placeholder="Authority" [(ngModel)]="authority" disabled>
+                    <span class="login-symbol"><i class="fa fa-user-circle" aria-hidden="true"></i></span>                   
+                </div>
+                <div class="register-wrap" *ngIf="!isDisabled"> 
+                    <input class="register-input" type="password" placeholder="New Password" [(ngModel)]="password">
+                    <span class="login-symbol"><i class="fa fa-lock" aria-hidden="true"></i></span>                   
+                </div>
+                <div class="register-wrap" *ngIf="!isDisabled">
+                    <input class="register-input" type="password" placeholder="Confirm Password" [(ngModel)]="passwordConfirmation">
+                    <span class="login-symbol"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                </div>
+                <div class="container-register-btn">
+                    <button class="login-btn" *ngIf="isDisabled" (click)="enableEdit()">Press to Edit your account</button>
+                </div>
+                <div class="container-register-btn" *ngIf="!isDisabled">
+                    <button class="login-btn" (click)="validate()">Save Changes</button>
+                </div>
+                <div class="register-wrap">
+                    <a class="sign-in" routerLink="/login">Already signed up? Sign in now!</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

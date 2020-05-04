@@ -1,0 +1,30 @@
+<div class="main-content">
+    <div class="text-center">
+        <a href="#">
+            <img src="assets/images/logo.png" alt="GoEshop" class="img-responsive">
+        </a>
+        <alerts></alerts>
+        <div class="login-container" (keyup.enter)="validate()">
+            <div class="new-product-form ">
+                <h2 style="margin-left: 55px;">Add new Product Category</h2>
+                <div class="register-wrap">
+                    <input class="register-input" type="text" placeholder="Category ID" [(ngModel)]="categoryId">
+                    <span class="login-symbol"><i class="fa fa-id-card" aria-hidden="true"></i></span>
+                </div>
+                <div class="register-wrap">
+                    <input class="new-product-input" type="text" placeholder="Category name" [(ngModel)]="categoryName">
+                    <span class="login-symbol"><i class="fa fa-tag" aria-hidden="true"></i></span>
+                </div>
+
+                <div class="container-register-btn">
+                    <button class="login-btn" (click)="validate()">Add Product Category</button>
+                </div>
+                <div class="register-wrap">
+                    <a class="sign-in" routerLink="/products" style="margin-left: 50px;">Go back to Main page !</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
