@@ -1,3 +1,46 @@
 <div class="main-content">
-    <p>Welcome to GoEshop !</p>
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- loop over products-->
+                <div *ngFor="let tempProduct of products" class="col-md-3">
+                    <!-- <div class="img-wrap">
+                        <a routerLink="/products" class="btn-overlay">
+                            <img [(src)]="'data:image/jpeg;base64,' + tempProduct.pic" class="img-responsive">
+                        </a>
+                        <a routerLink="/products">
+                            {{tempProduct.name}}
+                        </a>
+                        <div class="price">{{tempProduct.unitPrice | currency: 'USD'}}</div>
+                        <button class="btn btn-primary btn-sm">Add to cart</button>
+                    </div> -->
+                    <figure class="card card-product">
+                        <div class="img-wrap">
+                            <a routerLink="/products" class="btn-overlay">
+                                <img [(src)]="'data:image/jpeg;base64,' + tempProduct.pic"
+                                 style="height: 50%; width: 70%; display: block; margin-left: auto; margin-right: auto; margin-top: 15px;">
+                            </a>
+                        </div>
+
+                        <figcaption class="info-wrap">
+                            <h6 class="title text-dots"><a href="#">{{tempProduct.name}}</a></h6>
+                            <div class="action-wrap">
+                                <a href="#" class="btn btn-primary btn-sm float-right"> Add to cart </a>
+                                <div class="price-wrap h5">
+                                    <span class="price-new">{{tempProduct.unitPrice | currency: 'USD'}}</span>
+                                    <div class="price-wrap h5">
+                                        <h6 class="title text-dots">In stock</h6>
+                                    </div>
+                                </div> <!-- price-wrap.// -->
+                            </div> <!-- action-wrap -->
+                        </figcaption>
+                    </figure>
+                </div>
+                <!-- If products not found -->
+                <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
+                    No products found!
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

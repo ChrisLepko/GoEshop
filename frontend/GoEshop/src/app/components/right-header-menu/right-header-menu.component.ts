@@ -17,4 +17,8 @@ export class RightHeaderMenuComponent implements OnInit {
     this.router.navigate(['logout'])
   }
 
+  details(){
+    this.router.navigate(['account'])
+  }
+
 }

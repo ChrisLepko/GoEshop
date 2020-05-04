@@ -17,20 +17,22 @@ public class UserController {
     @Autowired
     private UsersDao usersDao;
 
+    //Tests
     @GetMapping("/")
     public String home(){
         return ("<h1>Welcome</h1>");
     }
 
-    @GetMapping("/pajac")
+    @GetMapping("/basicuser")
     public String user(){
         return ("<h1>Welcome User</h1>");
     }
 
-    @GetMapping("/adminpajac")
+    @GetMapping("/admin")
     public String admin(){
         return ("<h1>Welcome Admin</h1>");
     }
+    //
 
     @PostMapping("users/create")
     public String createUser(@Param("username") String username, @Param("name") String name, @Param("lastName") String lastName, @Param("password") String password){
@@ -39,6 +41,11 @@ public class UserController {
         return "User created";
     }
 
+    @PutMapping("users/update")
+    public String updateUser(@Param("username") String username, @Param("name") String name, @Param("lastName") String lastName, @Param("password") String password, @Param("oldUsername") String oldUsername) {
+        usersDao.updateUser(username, name, lastName, password, oldUsername);
+        return "User updated";
+    }
 
 
 }

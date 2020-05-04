@@ -22,13 +22,19 @@
                     <span class="login-symbol"><i class="fa fa-sticky-note" aria-hidden="true"></i></span>
                 </div>
                 <div class="register-wrap">
-                    <input class="new-product-input" type="text" placeholder="Unit price" [(ngModel)]="unitPrice">
+                    <input class="new-product-input" type="number" placeholder="Unit price" [(ngModel)]="unitPrice">
                     <span class="login-symbol"><i class="fa fa-credit-card" aria-hidden="true"></i></span>
                 </div>
                 <div class="register-wrap">
-                    <input class="new-product-input" type="text" placeholder="Units in stock"
+                    <input class="new-product-input" type="number" placeholder="Units in stock"
                         [(ngModel)]="unitsInStock">
                     <span class="login-symbol"><i class="fa fa-database" aria-hidden="true"></i></span>
+                </div>
+
+                <div class="register-wrap">
+                    <input class="new-product-input" type="number" placeholder="Category ID"
+                        [(ngModel)]="categoryId">
+                    <span class="login-symbol"><i class="fa fa-id-card" aria-hidden="true"></i></span>
                 </div>
 
                 <div class="register-wrap">
@@ -45,7 +51,7 @@
                 </div>
 
                 <div class="container-register-btn">
-                    <button class="login-btn" (click)="validate()">Sign up</button>
+                    <button class="login-btn" (click)="validate()">Add Product</button>
                 </div>
                 <div class="register-wrap">
                     <a class="sign-in" routerLink="/products" style="margin-left: 50px;">Go back to Main page !</a>
@@ -54,17 +60,17 @@
 
         </div>
 
-        <h3>Image Uploading Module</h3>
+        <!-- <h3>Image Uploading Module</h3>
         <div>
             <input type="file" name="file2" id="file2" (change)="onFileChanged($event)">
         </div>
         <div>
             <label for="file2">Choose file</label>
             <img [src]="imgURL" height="200" *ngIf="imgURL">
-        </div>
+        </div> -->
         <!-- <! — upload image — > -->
-        <input type="button" (click)="onUpload()" value="upload">
-        <hr />
+        <!-- <input type="button" (click)="onUpload()" value="upload">
+        <hr /> -->
         Received Image:
 
         <input type="text" placeholder="image name" [(ngModel)]="imageId">

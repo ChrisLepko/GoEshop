@@ -1,9 +1,12 @@
 package com.github.ChrisLepko.GoEshop.model;
 
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
+@NoArgsConstructor
 public class Users {
 
     @Id
@@ -21,8 +24,11 @@ public class Users {
     @JoinColumn(nullable = false)
     private UserRole role;
 
-    protected Users(){
-
+    public Users(String username, String name, String lastName, String password) {
+        this.username = username;
+        this.name = name;
+        this.lastName = lastName;
+        this.password = password;
     }
 
     public String getUsername() {

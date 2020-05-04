@@ -8,12 +8,12 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "image_model")
+@Table(name = "product_image")
 @AllArgsConstructor
 @Data
 @NoArgsConstructor
 @ToString
-public class ImageModel {
+public class ProductImage {
 
     @Id
     @Column
@@ -31,7 +31,7 @@ public class ImageModel {
     private byte[] pic;
 
     //custom Constructor
-    public ImageModel (String name, String type, byte[] pic){
+    public ProductImage(String name, String type, byte[] pic){
         this.name = name;
         this.type = type;
         this.pic = pic;

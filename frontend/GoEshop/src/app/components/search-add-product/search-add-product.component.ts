@@ -17,4 +17,8 @@ export class SearchAddProductComponent implements OnInit {
     this.router.navigate(['add-product'])
   }
 
+  addCategory(){
+    this.router.navigate(['add-category'])
+  }
+
 }

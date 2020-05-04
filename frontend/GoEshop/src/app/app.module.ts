@@ -16,6 +16,8 @@ import { SearchAddProductComponent } from './components/search-add-product/searc
 import { RightHeaderMenuComponent } from './components/right-header-menu/right-header-menu.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { AddCategoryComponent } from './components/add-category/add-category.component';
+import { AccountDetailsComponent } from './components/account-details/account-details.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { AddProductComponent } from './components/add-product/add-product.compon
     SearchAddProductComponent,
     RightHeaderMenuComponent,
     LogoutComponent,
-    AddProductComponent
+    AddProductComponent,
+    AddCategoryComponent,
+    AccountDetailsComponent
   ],
   imports: [
     BrowserModule,

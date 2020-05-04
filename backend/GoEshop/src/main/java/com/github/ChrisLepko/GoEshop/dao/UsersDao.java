@@ -18,9 +18,11 @@ import java.util.List;
 @RepositoryRestResource(path = "users")
 public interface UsersDao extends JpaRepository<Users, String> {
 
-    List<Users> findByUsername(@RequestParam("username") String username);
-
     @Transactional
     @Procedure(name = "createUser")
     public void createUser(@Param("username") String username, @Param("name") String name, @Param("lastName") String lastName, @Param("password") String password);
+
+    @Transactional
+    @Procedure(name = "updateUser")
+    public void updateUser(@Param("username") String username, @Param("name") String name, @Param("lastName") String lastName, @Param("password") String password, @Param("oldUsername") String oldUserName);
 }

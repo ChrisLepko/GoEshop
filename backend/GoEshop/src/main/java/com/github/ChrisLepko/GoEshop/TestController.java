@@ -4,12 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Optional;
-import java.util.zip.DataFormatException;
-import java.util.zip.Deflater;
-import java.util.zip.Inflater;
 
 @RestController
 @CrossOrigin("http://localhost:4200")
@@ -17,13 +13,13 @@ import java.util.zip.Inflater;
 public class TestController {
 
     @Autowired
-    ImageRepository imageRepository;
+    ProductImageRepository productImageRepository;
 
     @PostMapping("/upload")
-        public ImageModel uploadImage(@RequestParam("myFile") MultipartFile file) throws IOException {
-            ImageModel img = new ImageModel(file.getOriginalFilename(), file.getContentType(), file.getBytes());
+        public ProductImage uploadImage(@RequestParam("myFile") MultipartFile file) throws IOException {
+            ProductImage img = new ProductImage(file.getOriginalFilename(), file.getContentType(), file.getBytes());
 
-            final ImageModel savedImage = imageRepository.save(img);
+            final ProductImage savedImage = productImageRepository.save(img);
 
             System.out.println("Image saved");
 
@@ -31,8 +27,8 @@ public class TestController {
     }
 
     @GetMapping(path = "/get/{id}")
-    public ImageModel getImage(@PathVariable("id") Long id) throws IOException{
-        final Optional<ImageModel> retrievedImage = imageRepository.findById(id);
+    public ProductImage getImage(@PathVariable("id") Long id) throws IOException{
+        final Optional<ProductImage> retrievedImage = productImageRepository.findById(id);
         return retrievedImage.get();
     }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AlertService } from 'src/app/service/alert-service.service';
+import { ProductDataService } from 'src/app/service/product-data.service';
 
 @Component({
   selector: 'app-add-product',
@@ -14,8 +15,9 @@ export class AddProductComponent implements OnInit {
   description = ''
   unitPrice = ''
   unitsInStock = ''
+  categoryId = ''
 
-  constructor(private httpClient: HttpClient, private alertSrvice: AlertService) { }
+  constructor(private httpClient: HttpClient, private alertService: AlertService, private productService: ProductDataService) { }
 
   ngOnInit(): void {
   }
@@ -58,7 +60,35 @@ export class AddProductComponent implements OnInit {
         },
         err => {
           console.log('Error Occured during saving' + err)
-          this.alertSrvice.error("Error Occured during saving", false);
+          this.alertService.error("Error Occured during saving", false);
+        }
+      )
+    }
+
+    addProduct(){
+      const uploadData = new FormData();
+      uploadData.append('newProduct', this.selectedFile, this.selectedFile.name)
+
+      this.productService.addProduct(this.productName, this.sku, this.description, this.unitPrice, this.unitsInStock, this.categoryId, uploadData).subscribe(
+        res => {
+          this.alertService.success(`Product ${this.productName} has been added sucessfully !`)
+          this.productName = ''
+          this.sku = ''
+          this.description = ''
+          this.unitPrice = ''
+          this.unitsInStock = ''
+          this.selectedFile = undefined;
+          this.imgURL = undefined;
+        },
+        err => {
+          if(err.status == 500){
+            window.scrollTo(0,0)
+            this.alertService.error("Given product category ID doesn't exists ! Please enter valid Product category ID !")
+          } else{
+            window.scrollTo(0,0)
+            console.log('Error Occured during saving' + err)
+            this.alertService.error("Error Occured during saving", false);
+          }
         }
       )
     }
@@ -75,19 +105,12 @@ export class AddProductComponent implements OnInit {
     }
 
     validate(){
-      if(this.productName == '' || this.sku == '' || this.description == '' || this.unitPrice =='' || this.unitsInStock == '' || this.selectedFile == undefined){
+      if(this.productName == '' || this.sku == '' || this.description == '' || this.unitPrice =='' || this.unitsInStock == '' || this.categoryId == '' || this.selectedFile == undefined){
         window.scrollTo(0,0)
-        this.alertSrvice.error("Please enter all the details !", false)
+        this.alertService.error("Please enter all the details !", false)
       } else{
+        this.addProduct()
         window.scrollTo(0,0)
-        this.alertSrvice.success(`Product ${this.productName} has been added sucessfully !`)
-        this.productName = ''
-        this.sku = ''
-        this.description = ''
-        this.unitPrice = ''
-        this.unitsInStock = ''
-        this.selectedFile = undefined;
-        this.imgURL = undefined;
       }
     }
 

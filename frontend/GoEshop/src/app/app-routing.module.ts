@@ -6,6 +6,8 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { RouteGuardService } from './service/route-guard.service';
 import { LogoutComponent } from './components/logout/logout.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { AddCategoryComponent } from './components/add-category/add-category.component';
+import { AccountDetailsComponent } from './components/account-details/account-details.component';
 
 
 const routes: Routes = [
@@ -14,7 +16,9 @@ const routes: Routes = [
   {path: "register", component: RegisterComponent},
   {path: "logout", component: LogoutComponent},
   {path: "products", component: ProductListComponent, canActivate:[RouteGuardService]},
-  {path: "add-product", component: AddProductComponent}
+  {path: "add-product", component: AddProductComponent},
+  {path: "add-category", component: AddCategoryComponent},
+  {path: "account", component: AccountDetailsComponent}
 
 ];
 

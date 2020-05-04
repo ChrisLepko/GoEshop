@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductDataService } from 'src/app/service/product-data.service';
+import { ProductCategory } from 'src/app/common/product-category';
 
 @Component({
   selector: 'app-side-category-menu',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideCategoryMenuComponent implements OnInit {
 
-  constructor() { }
+  productCategories: ProductCategory[]
+
+  constructor(private productService: ProductDataService) { }
 
   ngOnInit(): void {
+    this.listProductCategories();
   }
 
+  listProductCategories(){
+
+    this.productService.getProductCategories().subscribe(
+      data => {
+        this.productCategories = data
+      }
+    )
+  }
 }
