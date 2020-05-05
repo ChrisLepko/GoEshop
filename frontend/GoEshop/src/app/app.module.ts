@@ -18,6 +18,7 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
 import { AccountDetailsComponent } from './components/account-details/account-details.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { AccountDetailsComponent } from './components/account-details/account-de
     LogoutComponent,
     AddProductComponent,
     AddCategoryComponent,
-    AccountDetailsComponent
+    AccountDetailsComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,

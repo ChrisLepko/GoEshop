@@ -31,7 +31,23 @@ export class ProductDataService {
   getProducts() : Observable<Product[]> {
     return this.httpClient.get<GetResponseProducts>(`${API_URL}/products`).pipe(map(
       response => response._embedded.products
-    ))
+    ));
+  }
+
+  getProduct(productId: number) : Observable<Product> {
+    return this.httpClient.get<Product>(`${API_URL}/products/${productId}`);
+  }
+
+  getProductsByCategory(categoryId: number) : Observable<Product[]>{
+    return this.httpClient.get<GetResponseProducts>(`${API_URL}/products/search/findByCategoryId?id=${categoryId}`).pipe(map(
+      response => response._embedded.products
+      ));
+  }
+
+  getProductsByKeyword(keyword: string) : Observable<Product[]>{
+    return this.httpClient.get<GetResponseProducts>(`${API_URL}/products/search/findByNameContaining?name=${keyword}`).pipe(map(
+      respone => respone._embedded.products
+    ));
   }
 }
 

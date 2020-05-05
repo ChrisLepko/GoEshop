@@ -108,7 +108,10 @@ export class AddProductComponent implements OnInit {
       if(this.productName == '' || this.sku == '' || this.description == '' || this.unitPrice =='' || this.unitsInStock == '' || this.categoryId == '' || this.selectedFile == undefined){
         window.scrollTo(0,0)
         this.alertService.error("Please enter all the details !", false)
-      } else{
+      } else if(this.description.length > 255){
+        window.scrollTo(0,0)
+        this.alertService.error("Description is too long !", false)
+      } else {
         this.addProduct()
         window.scrollTo(0,0)
       }

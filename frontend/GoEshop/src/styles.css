@@ -298,7 +298,7 @@ section{
 }
 
 .au-input-xl{
-  min-width:500px
+  width:500px
 }
 
 input.au-input.au-input-xl{
@@ -321,11 +321,7 @@ input.au-input.au-input-xl{
   transition:all .5s ease
 }
 
-.cart-area.d-n{
-  display:block
-}
-
-.cart-area i{
+.form-header i{
   font-size:22px;
   float:left;
   margin-top:30px;
@@ -335,7 +331,7 @@ input.au-input.au-input-xl{
 
 .total{
   background:#FF8C00;
-  line-height:43px;
+  line-height:45px;
   color:rgb(255, 248, 248);
   border-radius:30px;
   border:5px solid rgb(255, 248, 248);
@@ -343,6 +339,7 @@ input.au-input.au-input-xl{
   float:left;
   margin-top:15px;
   padding-left:17px;
+  margin-bottom: 17px;
 }
 
 .total span{
@@ -365,10 +362,10 @@ input.au-input.au-input-xl{
 }
 
 .au-btn-submit{
-  position:relative;
+  /* position:relative; */
   right:0;
-  min-width:100px;
-  min-height: 48px;
+  width:100px;
+  height: 50px;
   color:#FF8C00;
   border:1px solid rgb(255, 248, 248);
   -webkit-border-radius:3px;
@@ -382,10 +379,10 @@ input.au-input.au-input-xl{
 }
 
 .account-button{
-  position:relative;
+  /* position:relative; */
   right:0;
-  min-width:100px;
-  min-height: 48px;
+  width:100px;
+  height: 50px;
   bottom: 20px;
   color:#FF8C00;
   border:1px solid rgb(255, 248, 248);
@@ -396,6 +393,7 @@ input.au-input.au-input-xl{
   font-weight: bold;
   left: 20px;
   margin-left: 20px;
+  margin-top: 18px;
   
 }
 
@@ -738,6 +736,13 @@ input.au-input.au-input-xl{
   color: #333333;
 }
 
+.regular-white{
+  color: #ffffff;
+}
+.regular-white:hover{
+  color: #333333;
+}
+
 
 .sign-out{
   width: 100%;
@@ -841,3 +846,22 @@ input.au-input.au-input-xl{
   border-top: 1px solid #eee; }
 .card-product .title {
   margin-top: 0; }
+
+  hr.style18 { 
+    height: 30px; 
+    border-style: solid; 
+    border-color: #8c8b8b; 
+    border-width: 1px 0 0 0; 
+    border-radius: 20px; 
+  } 
+  hr.style18:before { 
+    display: block; 
+    content: ""; 
+    height: 30px; 
+    margin-top: -31px; 
+    border-style: solid; 
+    border-color: #8c8b8b; 
+    border-width: 0 0 1px 0; 
+    border-radius: 20px; 
+  }
+  

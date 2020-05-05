@@ -1,8 +1,9 @@
 <div class="form-header">
 
-    <input #myInput class="au-input au-input-xl" type="text" placeholder="Search for products ..." />
+    <input #keyword class="au-input au-input-xl" type="text" placeholder="Search for products ..."
+        (keyup.enter)="searchProducts(keyword.value)"/>
 
-    <button class="au-btn-submit">
+    <button class="au-btn-submit" (click)="searchProducts(keyword.value)">
         Search
     </button>
     <div *ngIf="true">

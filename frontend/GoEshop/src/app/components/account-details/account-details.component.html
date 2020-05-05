@@ -24,7 +24,7 @@
                     <span class="login-symbol"><i class="fa fa-user-circle" aria-hidden="true"></i></span>                   
                 </div>
                 <div class="register-wrap" *ngIf="!isDisabled"> 
-                    <input class="register-input" type="password" placeholder="New Password" [(ngModel)]="password">
+                    <input class="register-input" type="password" placeholder="Password or New Password" [(ngModel)]="password">
                     <span class="login-symbol"><i class="fa fa-lock" aria-hidden="true"></i></span>                   
                 </div>
                 <div class="register-wrap" *ngIf="!isDisabled">
@@ -38,7 +38,7 @@
                     <button class="login-btn" (click)="validate()">Save Changes</button>
                 </div>
                 <div class="register-wrap">
-                    <a class="sign-in" routerLink="/login">Already signed up? Sign in now!</a>
+                    <a class="sign-in" routerLink="/products" style="margin-left: 30px;">Go back to Main page !</a>
                 </div>
             </div>
 

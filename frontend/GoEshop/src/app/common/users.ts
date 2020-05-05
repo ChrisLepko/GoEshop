@@ -4,5 +4,6 @@ export class Users {
     lastName: string;
     password: string;
     enabled: boolean;
+    role: any;
 }
 

@@ -12,33 +12,58 @@ export class ProductListComponent implements OnInit {
 
   products: Product[] = [];
   searchModule: boolean = false;
+  currentCategoryId: number;
+  previousCategoryId: number;
 
   constructor(private productService: ProductDataService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.listProducts()
+    this.route.paramMap.subscribe(() => {
+      this.listProducts();
+    });
   }
 
-  listProducts(){
+  listProducts() {
     this.searchModule = this.route.snapshot.paramMap.has('keyword');
 
-    if(this.searchModule){
+    if (this.searchModule) {
       this.handleSearchProducts();
-    } else{
+    } else {
       this.handleListProducts();
     }
   }
 
-  handleSearchProducts(){
+  handleSearchProducts() {
+    const keyword: string = this.route.snapshot.paramMap.get('keyword');
 
-  }
-
-  handleListProducts(){
-    this.productService.getProducts().subscribe(
+    this.productService.getProductsByKeyword(keyword).subscribe(
       data => {
         this.products = data
       }
     )
+  }
+
+  handleListProducts() {
+
+    const hasCategoryId: boolean = this.route.snapshot.paramMap.has('id');
+
+    if (hasCategoryId) {
+      this.currentCategoryId = +this.route.snapshot.paramMap.get('id')
+
+      this.productService.getProductsByCategory(this.currentCategoryId).subscribe(
+        data => {
+          this.products = data
+        }
+      )
+    } else {
+
+      this.productService.getProducts().subscribe(
+        data => {
+          this.products = data
+        }
+      )
+
+    }
   }
 
 }

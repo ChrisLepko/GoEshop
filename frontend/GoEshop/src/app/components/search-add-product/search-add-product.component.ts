@@ -21,4 +21,8 @@ export class SearchAddProductComponent implements OnInit {
     this.router.navigate(['add-category'])
   }
 
+  searchProducts(keyword: string){
+    this.router.navigateByUrl(`/search/${keyword}`)
+  }
+
 }

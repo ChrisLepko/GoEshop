@@ -23,13 +23,17 @@
                         </div>
 
                         <figcaption class="info-wrap">
-                            <h6 class="title text-dots"><a href="#">{{tempProduct.name}}</a></h6>
+                            <h5 class="title text-dots"><a routerLink="/products/{{tempProduct.id}}" style="color: #FF8C00; font-weight: bold;">{{tempProduct.name}}</a></h5>
                             <div class="action-wrap">
-                                <a href="#" class="btn btn-primary btn-sm float-right"> Add to cart </a>
+                                <a href="#" class="btn btn-primary btn-sm float-right" style="background-color: #FF8C00; border-color: #FF8C00; font-weight: bold;">
+                                     Add to cart 
+                                </a>
                                 <div class="price-wrap h5">
-                                    <span class="price-new">{{tempProduct.unitPrice | currency: 'USD'}}</span>
+                                    <span class="price-new" style="font-weight: bold;">{{tempProduct.unitPrice | currency: 'USD'}}</span>
                                     <div class="price-wrap h5">
-                                        <h6 class="title text-dots">In stock</h6>
+                                        <h6 class="title text-dots" [ngStyle]="{'color' : tempProduct.unitsInStock > 5? 'darkgreen' : 'red'}" style="font-weight: bold;">
+                                            {{tempProduct.unitsInStock}} pcs left
+                                        </h6>
                                     </div>
                                 </div> <!-- price-wrap.// -->
                             </div> <!-- action-wrap -->
