@@ -19,15 +19,15 @@ const routes: Routes = [
   {path: "login", component: LoginComponent},
   {path: "register", component: RegisterComponent},
   {path: "logout", component: LogoutComponent},
-  {path: "products", component: ProductListComponent},
+  {path: "products", component: ProductListComponent, canActivate:[RouteGuardService]},
   {path: "add-product", component: AddProductComponent, canActivate:[AdminGuardService]},
-  {path: "add-category", component: AddCategoryComponent, canActivate: [AdminGuardService]},
-  {path: "account", component: AccountDetailsComponent},
-  {path: "category/:id", component: ProductListComponent},
-  {path: "search/:keyword", component: ProductListComponent},
-  {path: "products/:id", component: ProductDetailsComponent},
-  {path: "cart-details", component: CartDetailsComponent},
-  {path: "payment", component: PaymentComponent},
+  {path: "add-category", component: AddCategoryComponent, canActivate:[AdminGuardService]},
+  {path: "account", component: AccountDetailsComponent, canActivate:[RouteGuardService]},
+  {path: "category/:id", component: ProductListComponent, canActivate:[RouteGuardService]},
+  {path: "search/:keyword", component: ProductListComponent, canActivate:[RouteGuardService]},
+  {path: "products/:id", component: ProductDetailsComponent, canActivate:[RouteGuardService]},
+  {path: "cart-details", component: CartDetailsComponent, canActivate:[RouteGuardService]},
+  {path: "payment", component: PaymentComponent, canActivate:[RouteGuardService]},
   {path: '**', redirectTo: '/products', pathMatch: 'full'}
 
 ];

@@ -23,6 +23,8 @@ export class BasicAuthenticationService {
         data => {
           sessionStorage.setItem(AUTHENTICATED_USER, username);
           sessionStorage.setItem(TOKEN, basicAuthHeaderString);
+          // console.log( sessionStorage.getItem(AUTHENTICATED_USER))
+          // console.log( sessionStorage.getItem(TOKEN))
           return data;
         }
       )
@@ -34,7 +36,7 @@ export class BasicAuthenticationService {
     return this.http.get<Users>(`${API_URL}/users/${username}`).pipe(map(
       data => {
         role = data.role.role
-        console.log(role)
+        
         sessionStorage.setItem(ROLE, role)
       }
     ))

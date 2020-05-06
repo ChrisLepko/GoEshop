@@ -1,5 +1,5 @@
-<div class="menu-sidebar-content js-scrollbar1">
-    <nav class="navbar-sidebar">
+<div class="menu-sidebar-content js-scrollbar1" *ngIf="isUserLoggedIn()">
+    <nav class="navbar-sidebar"  >
         <ul class="list-unstyled navbar-list">
             <li *ngFor="let tempProductCategory of productCategories">
                 <a routerLink="/category/{{tempProductCategory.id}}" routerLinkActive="active-link">

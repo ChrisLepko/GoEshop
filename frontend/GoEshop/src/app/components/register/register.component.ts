@@ -30,12 +30,12 @@ export class RegisterComponent implements OnInit {
       data =>{},
       error =>{
         if(error.status == 200){
-          console.log("User created!")
+          // console.log("User created!")
           // this.alertService.success("Created", true)
           this.router.navigate(['login'])
         } else if(error.status == 500){
           // this.ifUserExist = true;
-          console.log("User Exists")
+          // console.log("User Exists")
           window.scrollTo(0,0)
           this.alertService.error(`Username: ${this.username} is already registered`)
         } else {

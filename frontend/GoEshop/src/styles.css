@@ -905,4 +905,7 @@ table.table-bordered > tbody > tr > td{
   color:#FF8C00;
   font-weight: bold;
 }
+.footer-pagination{
+  text-align:center
+}
   

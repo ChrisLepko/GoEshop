@@ -69,7 +69,7 @@ export class AccountDetailsComponent implements OnInit {
         }
       },
       error => {
-        console.log(error)
+        // console.log(error)
       }
     )
   }
@@ -79,7 +79,7 @@ export class AccountDetailsComponent implements OnInit {
       data => {
       },
       error => {
-        console.log(error)
+        // console.log(error)
         if(error.status == 200){
           window.scrollTo(0,0)
           this.alertService.success("User profile updated succesfully !")

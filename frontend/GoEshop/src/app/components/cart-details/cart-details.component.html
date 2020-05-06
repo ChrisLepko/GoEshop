@@ -1,0 +1,92 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <div *ngIf="cartItems.length>0">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th width="20%"><h5 style="color: #FF8C00; font-weight: bold;">Product Image</h5></th>
+                            <th width="50%"><h5 style="color: #FF8C00; font-weight: bold;">Product Detail</h5></th>
+                            <th width="30%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let tempCartItem of cartItems">
+                            <td style="height: 250px;">
+                                <img [(src)]="'data:image/jpeg;base64,' + tempCartItem.pic" class="img-responsive" width="300px">
+                            </td>
+                            <td style="position: relative;">
+                                <h3><a routerLink="/products/{{tempCartItem.id}}"  style="color: #FF8C00; font-weight: bold; text-decoration: underline;">{{tempCartItem.name}}</a></h3>
+                                <h5 class="price-new" style="font-weight: bold; color: #FF8C00; margin-top: 30px;">{{tempCartItem.unitPrice | currency: 'USD'}}</h5>
+                                <h6 class="title text-dots" [ngStyle]="{'color' : tempCartItem.unitsInStock > 5? 'darkgreen' : 'red'}" style="font-weight: bold;
+                                 position: absolute; bottom: 0;">
+                                    Units in stock: {{tempCartItem.unitsInStock}}
+                                </h6>
+                            </td>
+                            <td style="position: relative;">
+                                <div class="items">
+                                    <label> </label>
+                                    <div class="row no-gutters">
+                                        <div class="col">
+                                            <button class="btn btn-primary btn-sm" (click)="incrementQuantity(tempCartItem)"
+                                            style="background-color: #FF8C00; border-color: #FF8C00; color:#ffffff; margin-left: 115px;">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                        <div class="col ml-2 mr-2" style="text-align: center; border: 4px solid #FF8C00;">
+                                            {{tempCartItem.quantity}}
+                                        </div>
+                                        <div class="col">
+                                            <button class="btn btn-primary btn-sm" (click)="decrementQuantity(tempCartItem)"
+                                            style="background-color: #FF8C00; border-color: #FF8C00; color:#ffffff;">
+                                                <i class="fas fa-minus"></i>
+                                            </button>
+                                        </div>
+                                        <div class="col-8"></div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary mt-4" (click)="remove(tempCartItem)"
+                                style="background-color: #FF8C00; border-color: #FF8C00; color:#ffffff; margin-left: 115px; width: 230px;">
+                                    Remove
+                                </button>
+                                <h4 style="color: #FF8C00; position: absolute; bottom: 5px;">Subtotal: {{tempCartItem.quantity * tempCartItem.unitPrice | currency: 'USD'}}</h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2"></td>
+                            <td style="font-weight: bold;">
+                                <h4 style="color: #FF8C00;">Total Quantity: {{totalQuantity}}</h4>
+                                <h4 style="color: #FF8C00;">Shipping: FREE </h4>
+                                <hr class="style18">
+                                <h3 style="color: #FF8C00; margin-top: -25px;">Total Price: {{totalPrice | currency: 'USD'}}</h3>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <button class="btn btn-primary btn-lg wht-org-btn" style="float: right; margin-right: 90px;
+                 background-color: #FF8C00; border-color: #FF8C00; color:#ffffff; font-weight: bold;"
+                 (click)="goToPayment()">
+                    PAYMENT
+                </button>
+                <button class="btn btn-primary btn-lg wht-org-btn" style="float: right; margin-right: 60px;
+                 background-color: #FF8C00; border-color: #FF8C00; color:#ffffff; font-weight: bold;"
+                 (click)="clearCart()">
+                    Clear Cart
+                </button>
+
+                <div style="display: block; text-align: center; background-color: #FF8C00; width: 100%; height: 100px; margin-top: 150px;
+                border-radius: 20px;">
+                    <div>
+                        <h2 style="padding-top: 25px;"><a routerLink="/products" class="regular-white">Go back to the main page</a></h2>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="cartItems.length == 0" class="alert alert-warning col-md-12" role="alert">
+                Your shopping cart is empty.
+            </div>
+        </div>
+        
+    </div>
+</div>

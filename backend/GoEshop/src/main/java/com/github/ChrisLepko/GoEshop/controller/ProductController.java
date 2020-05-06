@@ -1,6 +1,5 @@
 package com.github.ChrisLepko.GoEshop.controller;
 
-import com.github.ChrisLepko.GoEshop.ProductImage;
 import com.github.ChrisLepko.GoEshop.dao.ProductCategoryDao;
 import com.github.ChrisLepko.GoEshop.dao.ProductDao;
 import com.github.ChrisLepko.GoEshop.model.Product;
@@ -8,7 +7,6 @@ import com.github.ChrisLepko.GoEshop.model.ProductCategory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 

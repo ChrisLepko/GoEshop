@@ -17,23 +17,6 @@ public class UserController {
     @Autowired
     private UsersDao usersDao;
 
-    //Tests
-    @GetMapping("/")
-    public String home(){
-        return ("<h1>Welcome</h1>");
-    }
-
-    @GetMapping("/basicuser")
-    public String user(){
-        return ("<h1>Welcome User</h1>");
-    }
-
-    @GetMapping("/admin")
-    public String admin(){
-        return ("<h1>Welcome Admin</h1>");
-    }
-    //
-
     @PostMapping("users/create")
     public String createUser(@Param("username") String username, @Param("name") String name, @Param("lastName") String lastName, @Param("password") String password){
         usersDao.createUser(username, name, lastName, password);

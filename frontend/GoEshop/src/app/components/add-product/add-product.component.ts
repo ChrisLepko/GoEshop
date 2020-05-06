@@ -50,22 +50,6 @@ export class AddProductComponent implements OnInit {
       }
     }
 
-    onUpload(){
-      const uploadData = new FormData();
-      uploadData.append('myFile', this.selectedFile, this.selectedFile.name)
-      console.log(uploadData);
-
-      this.httpClient.post('http://localhost:8080/check/upload', uploadData).subscribe(
-        res => {
-          console.log(res);
-        },
-        err => {
-          console.log('Error Occured during saving' + err)
-          this.alertService.error("Error Occured during saving", false);
-        }
-      )
-    }
-
     addProduct(){
       const uploadData = new FormData();
       uploadData.append('newProduct', this.selectedFile, this.selectedFile.name)
@@ -78,8 +62,9 @@ export class AddProductComponent implements OnInit {
           this.description = ''
           this.unitPrice = ''
           this.unitsInStock = ''
-          this.selectedFile = undefined;
-          this.imgURL = undefined;
+          this.categoryId = ''
+          this.selectedFile = null;
+          this.imgURL = null;
         },
         err => {
           if(err.status == 500){
@@ -87,20 +72,8 @@ export class AddProductComponent implements OnInit {
             this.alertService.error("Given product category ID doesn't exists ! Please enter valid Product category ID !")
           } else{
             window.scrollTo(0,0)
-            console.log('Error Occured during saving' + err)
             this.alertService.error("Error Occured during saving", false);
           }
-        }
-      )
-    }
-
-    getImage() {
-      this.httpClient.get('http://localhost:8080/check/get/' + this.imageId).subscribe(
-        res => {
-          this.receivedImageData = res;
-          this.base64Data = this.receivedImageData.pic;
-          console.log(this.base64Data)
-          this.convertedImage = 'data:image/jpeg;base64,' + this.base64Data;
         }
       )
     }

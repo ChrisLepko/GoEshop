@@ -28,26 +28,38 @@ export class ProductDataService {
     ))
   }
 
-  getProducts() : Observable<Product[]> {
-    return this.httpClient.get<GetResponseProducts>(`${API_URL}/products`).pipe(map(
-      response => response._embedded.products
-    ));
+  // getProducts() : Observable<Product[]> {
+  //   return this.httpClient.get<GetResponseProducts>(`${API_URL}/products`).pipe(map(
+  //     response => response._embedded.products
+  //   ));
+  // }
+
+  getProductsPaginate(page: number, pageSize: number) : Observable<GetResponseProducts> {
+    return this.httpClient.get<GetResponseProducts>(`${API_URL}/products?page=${page}&size=${pageSize}`)
   }
 
   getProduct(productId: number) : Observable<Product> {
     return this.httpClient.get<Product>(`${API_URL}/products/${productId}`);
   }
 
-  getProductsByCategory(categoryId: number) : Observable<Product[]>{
-    return this.httpClient.get<GetResponseProducts>(`${API_URL}/products/search/findByCategoryId?id=${categoryId}`).pipe(map(
-      response => response._embedded.products
-      ));
+  // getProductsByCategory(categoryId: number) : Observable<Product[]>{
+  //   return this.httpClient.get<GetResponseProducts>(`${API_URL}/products/search/findByCategoryId?id=${categoryId}`).pipe(map(
+  //     response => response._embedded.products
+  //     ));
+  // }
+
+  getProductsByCategoryPaginate(page: number, pageSize: number, categoryId: number) : Observable<GetResponseProducts> {
+    return this.httpClient.get<GetResponseProducts>(`${API_URL}/products/search/findByCategoryId?id=${categoryId}&page=${page}&size=${pageSize}`)
   }
 
-  getProductsByKeyword(keyword: string) : Observable<Product[]>{
-    return this.httpClient.get<GetResponseProducts>(`${API_URL}/products/search/findByNameContaining?name=${keyword}`).pipe(map(
-      respone => respone._embedded.products
-    ));
+  // getProductsByKeyword(keyword: string) : Observable<Product[]>{
+  //   return this.httpClient.get<GetResponseProducts>(`${API_URL}/products/search/findByNameContaining?name=${keyword}`).pipe(map(
+  //     respone => respone._embedded.products
+  //   ));
+  // }
+  
+  getProductsByKeywordPaginate(page: number, pageSize: number, keyword: string) : Observable<GetResponseProducts> {
+    return this.httpClient.get<GetResponseProducts>(`${API_URL}/products/search/findByNameContaining?name=${keyword}&page=${page}&size=${pageSize}`)
   }
 
   deleteProduct(productId: number){
@@ -66,10 +78,10 @@ interface GetResponseProducts {
   _embedded : {
     products : Product[];
   }
-  // page: {
-  //   size: number,
-  //   totalElements: number,
-  //   totalPages: number,
-  //   number: number
-  // }
+  page: {
+    size: number,
+    totalElements: number,
+    totalPages: number,
+    number: number
+  }
 }
