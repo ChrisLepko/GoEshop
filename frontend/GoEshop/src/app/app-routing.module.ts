@@ -9,6 +9,9 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { AddCategoryComponent } from './components/add-category/add-category.component';
 import { AccountDetailsComponent } from './components/account-details/account-details.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { CartDetailsComponent } from './components/cart-details/cart-details.component';
+import { PaymentComponent } from './components/payment/payment.component';
+import { AdminGuardService } from './service/admin-guard.service';
 
 
 const routes: Routes = [
@@ -17,12 +20,15 @@ const routes: Routes = [
   {path: "register", component: RegisterComponent},
   {path: "logout", component: LogoutComponent},
   {path: "products", component: ProductListComponent},
-  {path: "add-product", component: AddProductComponent},
-  {path: "add-category", component: AddCategoryComponent},
+  {path: "add-product", component: AddProductComponent, canActivate:[AdminGuardService]},
+  {path: "add-category", component: AddCategoryComponent, canActivate: [AdminGuardService]},
   {path: "account", component: AccountDetailsComponent},
   {path: "category/:id", component: ProductListComponent},
   {path: "search/:keyword", component: ProductListComponent},
-  {path: "products/:id", component: ProductDetailsComponent}
+  {path: "products/:id", component: ProductDetailsComponent},
+  {path: "cart-details", component: CartDetailsComponent},
+  {path: "payment", component: PaymentComponent},
+  {path: '**', redirectTo: '/products', pathMatch: 'full'}
 
 ];
 

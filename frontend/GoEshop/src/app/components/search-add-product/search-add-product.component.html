@@ -1,4 +1,4 @@
-<div class="form-header">
+<div class="form-header" *ngIf="isUserLoggedIn()">
 
     <input #keyword class="au-input au-input-xl" type="text" placeholder="Search for products ..."
         (keyup.enter)="searchProducts(keyword.value)"/>
@@ -7,12 +7,12 @@
         Search
     </button>
     <div *ngIf="true">
-        <button class="au-btn-submit" *ngIf="true" (click)="addProduct()">
+        <button class="au-btn-submit" *ngIf="hasAdminRole()" (click)="addProduct()">
             Add Product
         </button>
     </div>
     <div *ngIf="true">
-        <button class="au-btn-submit" *ngIf="true" (click)="addCategory()">
+        <button class="au-btn-submit" *ngIf="hasAdminRole()" (click)="addCategory()">
             Add Category
         </button>
     </div>

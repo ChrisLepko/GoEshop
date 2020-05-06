@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { API_URL, AUTHENTICATED_USER, TOKEN } from '../app.constants';
+import { API_URL, AUTHENTICATED_USER, TOKEN, ROLE } from '../app.constants';
 import { map } from 'rxjs/operators';
+import { Users } from '../common/users';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,23 @@ export class BasicAuthenticationService {
     );
   }
 
+  setUserRole(username){
+    let role: string;
+    return this.http.get<Users>(`${API_URL}/users/${username}`).pipe(map(
+      data => {
+        role = data.role.role
+        console.log(role)
+        sessionStorage.setItem(ROLE, role)
+      }
+    ))
+  }
+
+  getUserRole(){
+    if(this.getAuthenticatedUser()){
+      return sessionStorage.getItem(ROLE)
+    }
+  }
+
   getAuthenticatedUser(){
     return sessionStorage.getItem(AUTHENTICATED_USER)
   }
@@ -46,6 +64,7 @@ export class BasicAuthenticationService {
   logout(){
     sessionStorage.removeItem(AUTHENTICATED_USER);
     sessionStorage.removeItem(TOKEN);
+    sessionStorage.removeItem(ROLE);
   }
 
 }

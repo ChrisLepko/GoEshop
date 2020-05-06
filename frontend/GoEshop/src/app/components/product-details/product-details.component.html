@@ -1,0 +1,61 @@
+<div class="main-content">
+    <div class="container-fluid" style="display: flex;" *ngIf="!productNotFound">
+
+        <img src="data:image/jpeg;base64,{{product.pic}}" class="detail-img" style="display:flex; width: 40%; border-radius: 10px; height: auto; max-height: 450px;">
+
+        <div style="width: 50%; height: auto; min-height: 450px; background-color: #FF8C00; margin-left: 40px; border-radius: 25px;" >
+            <h1 style="text-align: center; justify-content: center; margin-top: 20px; font-weight: bold;">{{product.name}}</h1>
+            <hr class="style18">
+            <div  style="margin-left: 20px; margin-top: -30px; height: 55%;  position: relative;">
+                <h3>Description: </h3>
+                <p style="color: #ffffff; font-size: 20px;">{{product.description}}</p>
+                <div style="position: absolute; bottom: 0;">
+                    <div style="display: flex;">
+                        <h4>Price: </h4>
+                        <h4 style="margin-left: 90px;">{{product.unitPrice | currency:'USD'}}</h4>
+                    </div>
+                    <div style="display: flex;">
+                        <h4>Units in stock: </h4>
+                        <h4 style="margin-left: 10px;" [ngStyle]="{'color' : product.unitsInStock <= 5? 'darkred': '#fffff'}">{{product.unitsInStock}} Pcs</h4>
+
+                    </div>
+                    
+                </div>
+                <div style="position: absolute; right: 0; bottom: 0;" *ngIf="hasAdminRole()">
+                    <button class="btn btn-primary" style="background-color: #ffffff; border-color: #ffffff; color:#FF8C00; font-weight: bold; margin-right: 20px;"
+                    (click)="deleteItem()">
+                        Delete Item
+                    </button>
+                </div>
+            </div>
+            <hr class="style18">
+            <div  style="text-align: center; margin-top: -30px;">
+                <button class="btn btn-primary btn-lg" style="background-color: #ffffff; border-color: #ffffff; color:#FF8C00; font-weight: bold;"
+                (click)="addToCart()">
+                    Add to cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="productNotFound" class="container-fluid" >
+        <div class="alert alert-warning col-md-12" role="alert">
+            Product not Found !
+        </div>
+        <div style="display: block; text-align: center; background-color: #FF8C00; width: 100%; height: 100px; margin-top: 50px;
+        border-radius: 20px;">
+            <div>
+                <h2 style="padding-top: 25px;"><a routerLink="/products" class="regular-white">Go back to the main page</a></h2>
+            </div>
+        </div>
+    </div>
+
+
+    <div style="display: block; text-align: center; background-color: #FF8C00; width: 91%; height: 100px; margin-left: 15px; margin-top: 50px;
+    border-radius: 20px;" *ngIf="!productNotFound">
+        <div>
+            <h2 style="padding-top: 25px;"><a routerLink="/products" class="regular-white">Go back to the main page</a></h2>
+        </div>
+    </div>
+
+</div>

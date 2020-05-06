@@ -17,4 +17,13 @@ export class RouteGuardService implements CanActivate {
     this.router.navigate(['login'])
     return false;
   }
+
+  isAdmin(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
+    if(this.basicAuthenticationService.getUserRole() == 'ROLE_ADMIN'){
+      return true;
+    }
+
+    this.router.navigate(['products'])
+    return false;
+  }
 }

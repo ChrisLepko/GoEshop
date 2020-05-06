@@ -25,6 +25,7 @@ export class AccountDetailsComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    window.scrollTo(0,0);
     this.handleUserDetails()
   }
 

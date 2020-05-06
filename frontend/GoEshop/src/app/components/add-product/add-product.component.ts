@@ -20,6 +20,7 @@ export class AddProductComponent implements OnInit {
   constructor(private httpClient: HttpClient, private alertService: AlertService, private productService: ProductDataService) { }
 
   ngOnInit(): void {
+    window.scrollTo(0,0);
   }
   
 

@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
+    window.scrollTo(0,0);
     console.log(this.basicAuthenticationService.isUserLoggedIn())
     console.log(sessionStorage.getItem(AUTHENTICATED_USER))
   }
@@ -29,7 +30,12 @@ export class LoginComponent implements OnInit {
   signIn(){
     this.basicAuthenticationService.executeAuthenticationService(this.username, this.password).subscribe(
       data => {
-        this.router.navigate(['products']);
+        this.basicAuthenticationService.setUserRole(this.username).subscribe(
+          data => {
+            this.router.navigate(['products']);
+          }
+        )
+
       },
       error => {
         window.scrollTo(0,0)

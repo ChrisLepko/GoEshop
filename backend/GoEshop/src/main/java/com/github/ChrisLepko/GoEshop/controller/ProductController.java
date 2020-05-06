@@ -7,6 +7,7 @@ import com.github.ChrisLepko.GoEshop.model.Product;
 import com.github.ChrisLepko.GoEshop.model.ProductCategory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -37,6 +38,12 @@ public class ProductController {
         System.out.println("Product saved");
 
         return savedProduct;
+    }
+
+    @DeleteMapping("/product/{id}")
+    public ResponseEntity<Void> deleteProduct(@PathVariable Long id){
+        productDao.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 
     @PostMapping("/category")

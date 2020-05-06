@@ -45,6 +45,7 @@ button{
   background:0 0
 }
 
+
 img{
   max-width:100%;
   height:auto
@@ -135,6 +136,7 @@ aside.menu-sidebar.d-none.d-lg-block.clr{
   height:75px;
   box-shadow:-2px 0 4px #0000003b
 }
+
 
 /* 
 * ----------------------------
@@ -331,7 +333,7 @@ input.au-input.au-input-xl{
 
 .total{
   background:#FF8C00;
-  line-height:45px;
+  line-height:50px;
   color:rgb(255, 248, 248);
   border-radius:30px;
   border:5px solid rgb(255, 248, 248);
@@ -365,7 +367,7 @@ input.au-input.au-input-xl{
   /* position:relative; */
   right:0;
   width:100px;
-  height: 50px;
+  height: 60px;
   color:#FF8C00;
   border:1px solid rgb(255, 248, 248);
   -webkit-border-radius:3px;
@@ -376,13 +378,14 @@ input.au-input.au-input-xl{
   margin-left: 0;
   margin-right: 20px;
   
+  
 }
 
 .account-button{
   /* position:relative; */
   right:0;
   width:100px;
-  height: 50px;
+  height: 60px;
   bottom: 20px;
   color:#FF8C00;
   border:1px solid rgb(255, 248, 248);
@@ -393,8 +396,19 @@ input.au-input.au-input-xl{
   font-weight: bold;
   left: 20px;
   margin-left: 20px;
-  margin-top: 18px;
+  margin-top: 15px;
+  outline: none;
   
+}
+
+.account-button:focus{
+  outline: none;
+  border: none;
+}
+
+.au-btn-submit:focus{
+  outline: none;
+  border: none;
 }
 
 .au-btn-submit:hover{
@@ -712,6 +726,11 @@ input.au-input.au-input-xl{
   background: #333333;
 }
 
+.login-btn:focus {
+  outline: none;
+  border: none;
+}
+
 .sign-up{
   width: 100%;
   color: #ffffff;
@@ -784,6 +803,11 @@ input.au-input.au-input-xl{
 }
 .add-img-btn:hover {
   background: #333333;
+}
+
+.add-img-btn:focus{
+  outline: none;
+  border: none;
 }
 
 .img-input{
@@ -864,4 +888,21 @@ input.au-input.au-input-xl{
     border-width: 0 0 1px 0; 
     border-radius: 20px; 
   }
+
+  table.table-bordered{
+    border:1px solid #FF8C00;
+    margin-top:20px;
+  }
+table.table-bordered > thead > tr > th{
+    border:1px solid #FF8C00;
+}
+table.table-bordered > tbody > tr > td{
+    border:1px solid #FF8C00;
+}
+.wht-org-btn{
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color:#FF8C00;
+  font-weight: bold;
+}
   

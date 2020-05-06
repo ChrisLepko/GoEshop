@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BasicAuthenticationService } from 'src/app/service/basic-authentication.service';
 
 @Component({
   selector: 'app-search-add-product',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class SearchAddProductComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private basicAuthService: BasicAuthenticationService) { }
 
   ngOnInit(): void {
   }
@@ -23,6 +24,17 @@ export class SearchAddProductComponent implements OnInit {
 
   searchProducts(keyword: string){
     this.router.navigateByUrl(`/search/${keyword}`)
+  }
+
+  isUserLoggedIn() : boolean {
+    return this.basicAuthService.isUserLoggedIn();
+  }
+
+  hasAdminRole() : boolean {
+    if(this.basicAuthService.getUserRole() == 'ROLE_ADMIN'){
+      return true;
+    }  
+    return false
   }
 
 }

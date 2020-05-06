@@ -1,15 +1,22 @@
-<div class="form-header">
-    <a routerLink="/cart-details">
-        <div class="total">34
-            <span>2</span>
-        </div>
-        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-    </a>
-    <button class="account-button" (click)="details()">
-        My Account
-    </button>
+<div class="form-header" *ngIf="isUserLoggedIn()">
 
-    <button class="account-button" (click)="logout()">
-        Logout
+        <a routerLink="/cart-details">
+            <div class="total">{{totalPrice | currency: 'USD'}}
+                <span>{{totalQuantity}}</span>
+            </div>
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        </a>
+        <button class="account-button" (click)="details()">
+            My Account
+        </button>
+
+        <button class="account-button" (click)="logout()">
+            Logout
+        </button>
+</div>
+
+<div class="form-header" *ngIf="!isUserLoggedIn()"> 
+    <button class="account-button" style="margin-bottom: 15px;" (click)="signIn()">
+        Login
     </button>
 </div>

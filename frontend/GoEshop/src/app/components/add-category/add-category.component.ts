@@ -16,6 +16,7 @@ export class AddCategoryComponent implements OnInit {
   constructor(private productService: ProductDataService, private alertService: AlertService) { }
 
   ngOnInit(): void {
+    window.scrollTo(0,0);
   }
 
   validate(){

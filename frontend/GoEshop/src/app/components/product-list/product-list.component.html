@@ -25,9 +25,10 @@
                         <figcaption class="info-wrap">
                             <h5 class="title text-dots"><a routerLink="/products/{{tempProduct.id}}" style="color: #FF8C00; font-weight: bold;">{{tempProduct.name}}</a></h5>
                             <div class="action-wrap">
-                                <a href="#" class="btn btn-primary btn-sm float-right" style="background-color: #FF8C00; border-color: #FF8C00; font-weight: bold;">
+                                <button class="btn btn-primary btn-sm float-right" style="background-color: #FF8C00; border-color: #FF8C00; font-weight: bold;"
+                                 (click)="addToCart(tempProduct)">
                                      Add to cart 
-                                </a>
+                                </button>
                                 <div class="price-wrap h5">
                                     <span class="price-new" style="font-weight: bold;">{{tempProduct.unitPrice | currency: 'USD'}}</span>
                                     <div class="price-wrap h5">

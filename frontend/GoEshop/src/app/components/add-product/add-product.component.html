@@ -6,7 +6,7 @@
         <alerts></alerts>
         <div class="login-container" (keyup.enter)="validate()">
             <div class="new-product-form ">
-                <h2 style="margin-left: 100px;">Add new Product</h2>
+                <h2 style="margin-left: 130px;">Add new Product</h2>
                 <div class="register-wrap">
                     <input class="register-input" type="text" placeholder="Product name" [(ngModel)]="productName">
                     <span class="login-symbol"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
@@ -57,27 +57,6 @@
                     <a class="sign-in" routerLink="/products" style="margin-left: 50px;">Go back to Main page !</a>
                 </div>
             </div>
-
         </div>
-
-        <!-- <h3>Image Uploading Module</h3>
-        <div>
-            <input type="file" name="file2" id="file2" (change)="onFileChanged($event)">
-        </div>
-        <div>
-            <label for="file2">Choose file</label>
-            <img [src]="imgURL" height="200" *ngIf="imgURL">
-        </div> -->
-        <!-- <! — upload image — > -->
-        <!-- <input type="button" (click)="onUpload()" value="upload">
-        <hr /> -->
-        Received Image:
-
-        <input type="text" placeholder="image name" [(ngModel)]="imageId">
-        <input type="button" (click)="getImage()" value="Get Image" />
-        <div *ngIf="convertedImage">
-            <img [src]="convertedImage">
-        </div>>
-
     </div>
 </div>

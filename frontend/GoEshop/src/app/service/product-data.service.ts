@@ -49,6 +49,10 @@ export class ProductDataService {
       respone => respone._embedded.products
     ));
   }
+
+  deleteProduct(productId: number){
+    return this.httpClient.delete(`${API_URL}/create/product/${productId}`);
+  }
 }
 
 
